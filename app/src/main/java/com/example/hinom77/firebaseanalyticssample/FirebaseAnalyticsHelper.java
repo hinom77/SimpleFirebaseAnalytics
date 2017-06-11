@@ -24,8 +24,9 @@ public class FirebaseAnalyticsHelper {
     }
 
     // ③ イベントログを発火するメソッドを作成
-    public void logEvent(@NonNull final String name, Bundle params) {
-        mFirebaseAnalytics.logEvent(name, params);
+    public void logEvent(@NonNull final String name, FirebaseAnalyticsParams params) {
+        Bundle bundleParams = (params == null) ? null : params.getBundleParams();
+        mFirebaseAnalytics.logEvent(name, bundleParams);
     }
     public void logEvent(@NonNull final String name) {
         mFirebaseAnalytics.logEvent(name, null);

@@ -19,10 +19,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view.getId() == R.id.hello_world) {
             //「Hello World!」のテキストがクリックされるとイベントログを発火
-            Bundle params = new Bundle();
-            params.putString("param1", "test");
-            params.putInt("param2", 100);
-            params.putDouble("param3", 3.14);
+            FirebaseAnalyticsParams params = new FirebaseAnalyticsParams
+                    .Builder().param1("test").param2(100).param3(3.14).build();
             FirebaseAnalyticsHelper.getInstance(this).logEvent("event1", params);
         }
     }
